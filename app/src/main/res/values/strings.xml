@@ -6,4 +6,5 @@
     <string name="result">Result</string>
     <string name="same_type_convert"> It really is %1$s</string>
     <string name="button_to_clear_input">Button to Clear input</string>
+    <string name="issue_convert">Failed convert check your inter value</string>
 </resources>

@@ -120,7 +120,7 @@ class MainActivity() : AppCompatActivity() {
             binding.result.text = convert(input).toString()
             stateShowTextResult(true)
         } catch (error: Throwable) {
-            showToast("problem")
+            showToast(getString(R.string.issue_convert))
         }
     }
 
