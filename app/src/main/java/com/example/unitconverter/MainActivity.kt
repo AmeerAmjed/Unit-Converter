@@ -38,13 +38,18 @@ class MainActivity() : AppCompatActivity() {
                 tryConvert(input) { Convert.decimalToOctal(input.toInt()) }
             }  else if (option.isDecimalToHex(converterFrom, converterTo)) {
                 tryConvert(input) { Convert.decimalToHex(input.toInt()) }
+            } else if (option.isOctalToBinary(converterFrom, converterTo)) {
+                tryConvert(input) { Convert.octalToBinary(input) }
+            } else if (option.isOctalToDecimal(converterFrom, converterTo)) {
+                tryConvert(input) { Convert.octalToDecimal(input) }
+            } else if (option.isOctalToHex(converterFrom, converterTo)) {
+                tryConvert(input) { Convert.octalToHex(input) }
             }
-
-
-
-            else if (option.isBinaryToBinary(converterFrom, converterTo)) {
-                sameTypeConverter(converterFrom.selectedItem.toString())
-            }else if (option.isDecimalToDecimal(converterFrom, converterTo)) {
+            else if (
+                option.isBinaryToBinary(converterFrom, converterTo)
+                || option.isOctalToOctal(converterFrom, converterTo)
+                || option.isDecimalToDecimal(converterFrom, converterTo)
+            ) {
                 sameTypeConverter(converterFrom.selectedItem.toString())
             }
 

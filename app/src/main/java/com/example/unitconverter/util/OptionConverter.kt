@@ -36,6 +36,18 @@ class OptionConverter {
     }
 
 
+    fun isOctalToBinary(from: Spinner, to: Spinner): Boolean {
+        return isOctal(from) && isBinary(to)
+    }
+    fun isOctalToDecimal(from: Spinner, to: Spinner): Boolean {
+        return isOctal(from) && isDecimal(to)
+    }
+    fun isOctalToOctal(from: Spinner, to: Spinner): Boolean {
+        return isOctal(from) && isOctal(to)
+    }
+    fun isOctalToHex(from: Spinner, to: Spinner): Boolean {
+        return isOctal(from) && isHexDecimal(to)
+    }
     private fun isBinary(input: Spinner): Boolean {
         return input.selectedItem == TypeConvert.Binary.name
     }
