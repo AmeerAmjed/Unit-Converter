@@ -18,7 +18,6 @@ import com.example.unitconverter.util.OptionConverter
 class MainActivity() : AppCompatActivity() {
 
     private lateinit var option: OptionConverter
-
     private lateinit var converterFrom: Spinner
     private lateinit var converterTo: Spinner
     private lateinit var inputConverter: EditText
@@ -30,7 +29,6 @@ class MainActivity() : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
         initView()
         buttonConverterListener()
