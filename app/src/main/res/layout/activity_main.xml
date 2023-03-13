@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_input"
         android:layout_marginTop="@dimen/spacing16"
+        android:maxLines="1"
         android:background="@drawable/background_input"
         android:paddingHorizontal="@dimen/spacing12"
         android:text="@string/inter_number"
@@ -65,5 +66,27 @@
         app:layout_constraintEnd_toEndOf="@+id/input_converter"
         app:layout_constraintStart_toStartOf="@+id/input_converter"
         app:layout_constraintTop_toBottomOf="@+id/icon_to" />
+
+
+    <TextView
+        android:id="@+id/text_title_result"
+        style="@style/defaultTextStyle.title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/result"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_converter" />
+
+    <TextView
+        android:id="@+id/result"
+        style="@style/defaultTextStyle.title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_converter" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,4 +3,6 @@
     <string name="inter_number">Inter Number</string>
     <string name="icon_arrow_converter">Icon arrow converter</string>
     <string name="converter">Converter</string>
+    <string name="result">Result</string>
+    <string name="same_type_convert"> It really is %1$s</string>
 </resources>

@@ -36,6 +36,11 @@
         <item name="android:textSize">@dimen/font_size_normal</item>
     </style>
 
+    <style name="defaultTextStyle.title" parent="defaultTextStyle">
+        <item name="android:textFontWeight">500</item>
+        <item name="android:textSize">@dimen/font_size_title</item>
+    </style>
+
     <style name="button" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/background_button</item>
         <item name="android:textColor">@color/on_primary</item>
