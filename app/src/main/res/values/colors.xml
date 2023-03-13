@@ -3,15 +3,21 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="background">#F7F7FA</color>
+    <color name="background">#E6F7F7FA</color>
+    <color name="on_background">@color/text_87</color>
 
     <color name="primary">#1A70F7</color>
     <color name="primary_variant">#811A70F7</color>
     <color name="on_primary">#E9E9ED</color>
 
-    <color name="secondary">#222327</color>
+    <color name="secondary">#54b3ff</color>
     <color name="secondary_variant">#81222327</color>
-    <color name="on_secondary">#E9E9ED</color>
+    <color name="on_secondary">@color/primary</color>
 
+    <color name="text_87">#DE000000</color>
+    <color name="text_60">#99000000</color>
+    <color name="text_38">#61000000</color>
+    <color name="text_variant_10">#1A000000</color>
 
+    <color name="background_action">@color/white</color>
 </resources>

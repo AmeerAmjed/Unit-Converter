@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spacing0">0dp</dimen>
+    <dimen name="spacing4">4dp</dimen>
+    <dimen name="spacing8">8dp</dimen>
+    <dimen name="spacing12">12dp</dimen>
+    <dimen name="spacing16">16dp</dimen>
+    <dimen name="spacing24">25dp</dimen>
+
+    <dimen name="font_size_title">16sp</dimen>
+    <dimen name="font_size_normal">14sp</dimen>
+    <dimen name="font_size_caption">12sp</dimen>
+
+    <dimen name="height_input">56dp</dimen>
+    <dimen name="width_boarder">1dp</dimen>
+    <dimen name="radius">10dp</dimen>
+    <dimen name="height_button">48dp</dimen>
+</resources>

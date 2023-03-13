@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.UnitConverter" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -13,6 +13,35 @@
         <item name="backgroundColor">@color/background</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/background</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
+
+    <style name="defaultTextStyle" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textColor">@color/text_87</item>
+        <item name="android:textSize">@dimen/font_size_normal</item>
+    </style>
+
+    <style name="defaultTextStyle.onPrimary" parent="defaultTextStyle">
+        <item name="android:textColor">@color/on_primary</item>
+    </style>
+
+    <style name="defaultTextStyle.onBackground" parent="defaultTextStyle">
+        <item name="android:textColor">@color/on_background</item>
+    </style>
+
+    <style name="defaultTextStyle.normal" parent="defaultTextStyle">
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textSize">@dimen/font_size_normal</item>
+    </style>
+
+    <style name="button" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/background_button</item>
+        <item name="android:textColor">@color/on_primary</item>
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:textSize">@dimen/font_size_normal</item>
+    </style>
+
 </resources>

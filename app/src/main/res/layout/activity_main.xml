@@ -4,15 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
+    android:padding="@dimen/spacing16"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <EditText
+        android:id="@+id/input_converter"
+        style="@style/defaultTextStyle.onBackground"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_input"
+        android:layout_marginTop="@dimen/spacing16"
+        android:background="@drawable/background_input"
+        android:paddingHorizontal="@dimen/spacing12"
+        android:text="@string/inter_number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Spinner
+        android:id="@+id/select_converter_from"
+        android:layout_width="@dimen/spacing0"
+        android:layout_height="@dimen/height_button"
+        android:layout_marginTop="@dimen/spacing16"
+        android:background="@drawable/background_spinner"
+        android:prompt="@string/converter"
+        app:layout_constraintStart_toStartOf="@+id/input_converter"
+        app:layout_constraintTop_toBottomOf="@+id/input_converter"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <ImageView
+        android:id="@+id/icon_to"
+        android:layout_width="@dimen/spacing0"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/icon_arrow_converter"
+        android:src="@drawable/to"
+        app:layout_constraintBottom_toBottomOf="@+id/select_converter_from"
+        app:layout_constraintEnd_toStartOf="@+id/select_converter_to"
+        app:layout_constraintStart_toEndOf="@+id/select_converter_from"
+        app:layout_constraintTop_toTopOf="@+id/select_converter_from" />
+
+    <Spinner
+        android:id="@+id/select_converter_to"
+        android:layout_width="@dimen/spacing0"
+        android:layout_height="@dimen/height_button"
+        android:background="@drawable/background_spinner"
+        app:layout_constraintBottom_toBottomOf="@+id/select_converter_from"
+        app:layout_constraintEnd_toEndOf="@+id/input_converter"
+        app:layout_constraintStart_toEndOf="@+id/icon_to"
+        app:layout_constraintTop_toTopOf="@+id/select_converter_from"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_converter"
+        style="@style/button"
+        android:layout_width="@dimen/spacing0"
+        android:layout_height="@dimen/height_button"
+        android:layout_marginTop="@dimen/spacing24"
+        android:text="@string/converter"
+        app:layout_constraintEnd_toEndOf="@+id/input_converter"
+        app:layout_constraintStart_toStartOf="@+id/input_converter"
+        app:layout_constraintTop_toBottomOf="@+id/icon_to" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
