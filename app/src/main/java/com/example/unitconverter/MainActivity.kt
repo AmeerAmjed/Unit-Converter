@@ -5,31 +5,52 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.unitconverter.databinding.ActivityMainBinding
+import androidx.appcompat.widget.AppCompatButton
 import com.example.unitconverter.util.OptionConverter
 
 
 class MainActivity() : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
 
-    private val option: OptionConverter = OptionConverter()
+    private lateinit var option: OptionConverter
+
+    private lateinit var converterFrom: Spinner
+    private lateinit var converterTo: Spinner
+    private lateinit var inputConverter: EditText
+    private lateinit var btnCleanInput: ImageButton
+    private lateinit var btnConverter: AppCompatButton
+    private lateinit var textResult: TextView
+    private lateinit var result: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        val converterFrom: Spinner = binding.selectConverterFrom
-        val converterTo: Spinner = binding.selectConverterTo
+        setContentView(R.layout.activity_main)
 
-        initSpinner(converterFrom, converterTo)
-        buttonConverterListener(converterFrom, converterTo)
+
+        initView()
+        buttonConverterListener()
         textListener()
         cleanInput()
     }
 
-    private fun initSpinner(converterFrom: Spinner, converterTo: Spinner) {
+    private fun initView() {
+        option = OptionConverter()
+        converterFrom = findViewById(R.id.select_converter_from)
+        converterTo = findViewById(R.id.select_converter_to)
+        inputConverter = findViewById(R.id.input_converter)
+        btnCleanInput = findViewById(R.id.btn_clean_input)
+        btnConverter = findViewById(R.id.btn_converter)
+        textResult = findViewById(R.id.text_title_result)
+        result = findViewById(R.id.result)
+        initSpinner()
+    }
+
+    private fun initSpinner() {
         val optionConverter = listOf("Binary", "Decimal", "Octal", "HexDecimal")
 
         val adapterConverterFrom = ArrayAdapter(this, R.layout.item_spinner, optionConverter)
@@ -44,9 +65,9 @@ class MainActivity() : AppCompatActivity() {
 
 
     private fun textListener() {
-        binding.inputConverter.addTextChangedListener(object : TextWatcher {
+        inputConverter.addTextChangedListener(object : TextWatcher {
             override fun onTextChanged(input: CharSequence?, start: Int, before: Int, count: Int) {
-                binding.btnCleanInput.run {
+                btnCleanInput.run {
                     visibility = if (input.toString().isEmpty()) {
                         View.INVISIBLE
                     } else {
@@ -63,23 +84,21 @@ class MainActivity() : AppCompatActivity() {
 
 
     private fun cleanInput() {
-        binding.btnCleanInput.setOnClickListener {
-            binding.inputConverter.text.clear()
+        btnCleanInput.setOnClickListener {
+            inputConverter.text.clear()
             stateShowTextResult(false)
         }
     }
 
     private fun stateShowTextResult(state: Boolean) {
         val stateShow = if (state) View.VISIBLE else View.INVISIBLE
-        binding.run {
-            textTitleResult.visibility = stateShow
-            result.visibility = stateShow
-        }
+        textResult.visibility = stateShow
+        result.visibility = stateShow
     }
 
-    private fun buttonConverterListener(converterFrom: Spinner, converterTo: Spinner) {
-        binding.btnConverter.setOnClickListener {
-            val input = binding.inputConverter.text.toString()
+    private fun buttonConverterListener() {
+        btnConverter.setOnClickListener {
+            val input = inputConverter.text.toString()
             val from = converterFrom.selectedItem.toString()
             val to = converterTo.selectedItem.toString()
             val result = when {
@@ -109,7 +128,7 @@ class MainActivity() : AppCompatActivity() {
 
     private fun <I, O> tryConvert(input: I, convert: (I) -> O) {
         try {
-            binding.result.text = convert(input).toString()
+            result.text = convert(input).toString()
             stateShowTextResult(true)
         } catch (error: Throwable) {
             showToast(getString(R.string.issue_convert))
