@@ -80,38 +80,30 @@ class MainActivity() : AppCompatActivity() {
     private fun buttonConverterListener(converterFrom: Spinner, converterTo: Spinner) {
         binding.btnConverter.setOnClickListener {
             val input = binding.inputConverter.text.toString()
-            if (option.isBinaryToDecimal(converterFrom, converterTo)) {
-                tryConvert(input) { Convert.binaryToDecimal(input) }
-            } else if (option.isBinaryToOctal(converterFrom, converterTo)) {
-                tryConvert(input) { Convert.binaryToOctal(input) }
-            } else if (option.isBinaryToHex(converterFrom, converterTo)) {
-                tryConvert(input) { Convert.binaryToHex(input) }
-            } else if (option.isDecimalToBinary(converterFrom, converterTo)) {
-                tryConvert(input) { Convert.decimalToBinary(input.toInt()) }
-            } else if (option.isDecimalToOctal(converterFrom, converterTo)) {
-                tryConvert(input) { Convert.decimalToOctal(input.toInt()) }
-            } else if (option.isDecimalToHex(converterFrom, converterTo)) {
-                tryConvert(input) { Convert.decimalToHex(input.toInt()) }
-            } else if (option.isOctalToBinary(converterFrom, converterTo)) {
-                tryConvert(input) { Convert.octalToBinary(input) }
-            } else if (option.isOctalToDecimal(converterFrom, converterTo)) {
-                tryConvert(input) { Convert.octalToDecimal(input) }
-            } else if (option.isOctalToHex(converterFrom, converterTo)) {
-                tryConvert(input) { Convert.octalToHex(input) }
-            } else if (option.isHexToBinary(converterFrom, converterTo)) {
-                tryConvert(input) { Convert.hexToBinary(input) }
-            } else if (option.isHexToDecimal(converterFrom, converterTo)) {
-                tryConvert(input) { Convert.hexToDecimal(input) }
-            } else if (option.isHexToOctal(converterFrom, converterTo)) {
-                tryConvert(input) { Convert.hexToOctal(input) }
-            } else if (
-                option.isBinaryToBinary(converterFrom, converterTo)
-                || option.isOctalToOctal(converterFrom, converterTo)
-                || option.isDecimalToDecimal(converterFrom, converterTo)
-                || option.isHexToHex(converterFrom, converterTo)
-            ) {
-                sameTypeConverter(converterFrom.selectedItem.toString())
+            val from = converterFrom.selectedItem.toString()
+            val to = converterTo.selectedItem.toString()
+            val result = when {
+                option.isBinaryToDecimal(from, to) -> Convert.binaryToDecimal(input)
+                option.isBinaryToOctal(from, to) -> Convert.binaryToOctal(input)
+                option.isBinaryToHex(from, to) -> Convert.binaryToHex(input)
+                option.isDecimalToBinary(from, to) -> Convert.decimalToBinary(input.toInt())
+                option.isDecimalToOctal(from, to) -> Convert.decimalToOctal(input.toInt())
+                option.isDecimalToHex(from, to) -> Convert.decimalToHex(input.toInt())
+                option.isOctalToBinary(from, to) -> Convert.octalToBinary(input)
+                option.isOctalToDecimal(from, to) -> Convert.octalToDecimal(input)
+                option.isOctalToHex(from, to) -> Convert.octalToHex(input)
+                option.isHexToBinary(from, to) -> Convert.hexToBinary(input)
+                option.isHexToDecimal(from, to) -> Convert.hexToDecimal(input)
+                option.isHexToOctal(from, to) -> Convert.hexToOctal(input)
+                else -> null
             }
+
+            if (result != null) {
+                tryConvert(input) { result }
+            } else {
+                sameTypeConverter(from)
+            }
+
         }
     }
 

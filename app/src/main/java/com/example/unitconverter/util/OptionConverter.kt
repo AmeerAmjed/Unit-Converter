@@ -1,81 +1,70 @@
 package com.example.unitconverter.util
 
-import android.widget.Spinner
-
 class OptionConverter {
 
-    fun isBinaryToDecimal(from: Spinner, to: Spinner): Boolean {
+    fun isBinaryToDecimal(from: String, to: String): Boolean {
         return isBinary(from) && isDecimal(to)
     }
 
-    fun isBinaryToOctal(from: Spinner, to: Spinner): Boolean {
+    fun isBinaryToOctal(from: String, to: String): Boolean {
         return isBinary(from) && isOctal(to)
     }
 
-    fun isBinaryToHex(from: Spinner, to: Spinner): Boolean {
+    fun isBinaryToHex(from: String, to: String): Boolean {
         return isBinary(from) && isHexDecimal(to)
     }
 
-    fun isBinaryToBinary(from: Spinner, to: Spinner): Boolean {
-        return isBinary(from) && isBinary(to)
-    }
-
-
-    fun isDecimalToBinary(from: Spinner, to: Spinner): Boolean {
+    fun isDecimalToBinary(from: String, to: String): Boolean {
         return isDecimal(from) && isBinary(to)
     }
-    fun isDecimalToDecimal(from: Spinner, to: Spinner): Boolean {
-        return isDecimal(from) && isDecimal(to)
-    }
 
-    fun isDecimalToOctal(from: Spinner, to: Spinner): Boolean {
+    fun isDecimalToOctal(from: String, to: String): Boolean {
         return isDecimal(from) && isOctal(to)
     }
-    fun isDecimalToHex(from: Spinner, to: Spinner): Boolean {
+
+    fun isDecimalToHex(from: String, to: String): Boolean {
         return isDecimal(from) && isHexDecimal(to)
     }
 
 
-    fun isOctalToBinary(from: Spinner, to: Spinner): Boolean {
+    fun isOctalToBinary(from: String, to: String): Boolean {
         return isOctal(from) && isBinary(to)
     }
-    fun isOctalToDecimal(from: Spinner, to: Spinner): Boolean {
+
+    fun isOctalToDecimal(from: String, to: String): Boolean {
         return isOctal(from) && isDecimal(to)
     }
-    fun isOctalToOctal(from: Spinner, to: Spinner): Boolean {
-        return isOctal(from) && isOctal(to)
-    }
-    fun isOctalToHex(from: Spinner, to: Spinner): Boolean {
+
+    fun isOctalToHex(from: String, to: String): Boolean {
         return isOctal(from) && isHexDecimal(to)
     }
 
-    fun isHexToBinary(from: Spinner, to: Spinner): Boolean {
+    fun isHexToBinary(from: String, to: String): Boolean {
         return isHexDecimal(from) && isBinary(to)
     }
-    fun isHexToDecimal(from: Spinner, to: Spinner): Boolean {
+
+    fun isHexToDecimal(from: String, to: String): Boolean {
         return isHexDecimal(from) && isDecimal(to)
     }
-    fun isHexToOctal(from: Spinner, to: Spinner): Boolean {
+
+    fun isHexToOctal(from: String, to: String): Boolean {
         return isHexDecimal(from) && isOctal(to)
     }
-    fun isHexToHex(from: Spinner, to: Spinner): Boolean {
-        return isHexDecimal(from) && isHexDecimal(to)
+
+    private fun isBinary(input: String): Boolean {
+        return input == TypeConvert.Binary.name
     }
 
-    private fun isBinary(input: Spinner): Boolean {
-        return input.selectedItem == TypeConvert.Binary.name
+    private fun isDecimal(input: String): Boolean {
+        return input == TypeConvert.Decimal.name
     }
 
-    private fun isDecimal(input: Spinner): Boolean {
-        return input.selectedItem == TypeConvert.Decimal.name
+    private fun isOctal(input: String): Boolean {
+        return input == TypeConvert.Octal.name
     }
 
-    private fun isOctal(input: Spinner): Boolean {
-        return input.selectedItem == TypeConvert.Octal.name
-    }
-
-    private fun isHexDecimal(input: Spinner): Boolean {
-        return input.selectedItem == TypeConvert.HexDecimal.name
+    private fun isHexDecimal(input: String): Boolean {
+        return input == TypeConvert.HexDecimal.name
     }
 
 }
