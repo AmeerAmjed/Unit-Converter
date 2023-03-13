@@ -10,6 +10,7 @@
     <dimen name="font_size_title">22sp</dimen>
     <dimen name="font_size_normal">14sp</dimen>
     <dimen name="font_size_caption">12sp</dimen>
+    <dimen name="font_size_large_title">32sp</dimen>
 
     <dimen name="height_input">56dp</dimen>
     <dimen name="width_boarder">1dp</dimen>

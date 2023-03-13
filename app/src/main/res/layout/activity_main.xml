@@ -41,10 +41,11 @@
         android:contentDescription="@string/button_to_clear_input"
         android:padding="@dimen/spacing8"
         android:src="@drawable/clear"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/input_converter"
         app:layout_constraintEnd_toEndOf="@+id/input_converter"
         app:layout_constraintTop_toTopOf="@+id/input_converter" />
-    
+
     <Spinner
         android:id="@+id/select_converter_from"
         android:layout_width="@dimen/spacing0"
@@ -96,19 +97,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/result"
+        android:textColor="@color/text_60"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_converter" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_converter"
+        app:layout_constraintVertical_bias="0.152" />
 
     <TextView
         android:id="@+id/result"
         style="@style/defaultTextStyle.title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing4"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="@dimen/font_size_large_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_converter" />
+        app:layout_constraintTop_toBottomOf="@+id/text_title_result" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

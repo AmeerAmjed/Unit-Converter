@@ -65,6 +65,15 @@ class MainActivity() : AppCompatActivity() {
     private fun cleanInput() {
         binding.btnCleanInput.setOnClickListener {
             binding.inputConverter.text.clear()
+            stateShowTextResult(false)
+        }
+    }
+
+    private fun stateShowTextResult(state: Boolean) {
+        val stateShow = if (state) View.VISIBLE else View.INVISIBLE
+        binding.run {
+            textTitleResult.visibility = stateShow
+            result.visibility = stateShow
         }
     }
 
@@ -109,6 +118,7 @@ class MainActivity() : AppCompatActivity() {
     private fun <I, O> tryConvert(input: I, convert: (I) -> O) {
         try {
             binding.result.text = convert(input).toString()
+            stateShowTextResult(true)
         } catch (error: Throwable) {
             showToast("problem")
         }
