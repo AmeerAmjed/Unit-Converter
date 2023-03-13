@@ -45,10 +45,19 @@ class MainActivity() : AppCompatActivity() {
             } else if (option.isOctalToHex(converterFrom, converterTo)) {
                 tryConvert(input) { Convert.octalToHex(input) }
             }
+            else if (option.isHexToBinary(converterFrom, converterTo)) {
+                tryConvert(input) { Convert.hexToBinary(input) }
+            } else if (option.isHexToDecimal(converterFrom, converterTo)) {
+                tryConvert(input) { Convert.hexToDecimal(input) }
+            } else if (option.isHexToOctal(converterFrom, converterTo)) {
+                tryConvert(input) { Convert.hexToOctal(input) }
+            }
+
             else if (
                 option.isBinaryToBinary(converterFrom, converterTo)
                 || option.isOctalToOctal(converterFrom, converterTo)
                 || option.isDecimalToDecimal(converterFrom, converterTo)
+                || option.isHexToHex(converterFrom, converterTo)
             ) {
                 sameTypeConverter(converterFrom.selectedItem.toString())
             }

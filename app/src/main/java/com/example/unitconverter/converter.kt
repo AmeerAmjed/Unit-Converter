@@ -43,4 +43,16 @@ object Convert {
     fun octalToHex(octal: String): String {
         return octalToDecimal(octal).toString(16).uppercase()
     }
+
+    fun hexToDecimal(octal: String): Int {
+        return Integer.parseInt(octal, 16)
+    }
+
+    fun hexToBinary(octal: String): String {
+        return hexToDecimal(octal).toString(2).uppercase()
+    }
+
+    fun hexToOctal(octal: String): String {
+        return hexToDecimal(octal).toString(8).uppercase()
+    }
 }
