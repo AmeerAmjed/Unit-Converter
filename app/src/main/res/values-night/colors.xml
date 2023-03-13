@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="background">#1F1D2B</color>
+    <color name="on_background">@color/text_87</color>
 
+    <color name="primary">#6C5ECF</color>
+    <color name="primary_variant">#816C5ECF</color>
+    <color name="on_primary">#E9E9ED</color>
+
+    <color name="secondary">#252837</color>
+    <color name="secondary_variant">#81252837</color>
+    <color name="on_secondary">@color/primary</color>
+
+    <color name="text_87">#DEFFFFFF</color>
+    <color name="text_60">#99FFFFFF</color>
+    <color name="text_38">#61FFFFFF</color>
+    <color name="text_variant_10">#1AFFFFFF</color>
+
+    <color name="background_action">@color/secondary</color>
+    <color name="clear_icon">#60FFFFFF</color>
 </resources>
