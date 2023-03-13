@@ -14,9 +14,20 @@ object Convert {
             )
         )
     }
+
     fun binaryToHex(binary: String): String {
         return Integer.parseInt(binary, 2).toString(16).uppercase()
     }
 
+
+    fun decimalToBinary(decimal: Int): String {
+        return decimal.toString(2)
+    }
+    fun decimalToOctal(decimal: Int): String {
+        return decimal.toString(8)
+    }
+    fun decimalToHex(decimal: Int): String {
+        return decimal.toString(16).uppercase()
+    }
 
 }

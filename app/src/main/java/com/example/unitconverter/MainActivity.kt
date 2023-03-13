@@ -26,13 +26,25 @@ class MainActivity() : AppCompatActivity() {
         binding.btnConverter.setOnClickListener {
             val input = binding.inputConverter.text.toString()
 
-            if (isBinaryToDecimal(converterFrom, converterTo)) {
+            if (option.isBinaryToDecimal(converterFrom, converterTo)) {
                 tryConvert(input) { Convert.binaryToDecimal(input) }
-            } else if (isBinaryToOctal(converterFrom, converterTo)) {
+            } else if (option.isBinaryToOctal(converterFrom, converterTo)) {
                 tryConvert(input) { Convert.binaryToOctal(input) }
-            } else if (isBinaryToHex(converterFrom, converterTo)) {
+            } else if (option.isBinaryToHex(converterFrom, converterTo)) {
                 tryConvert(input) { Convert.binaryToHex(input) }
-            } else if (isBinaryToBinary(converterFrom, converterTo)) {
+            } else if (option.isDecimalToBinary(converterFrom, converterTo)) {
+                tryConvert(input) { Convert.decimalToBinary(input.toInt()) }
+            }  else if (option.isDecimalToOctal(converterFrom, converterTo)) {
+                tryConvert(input) { Convert.decimalToOctal(input.toInt()) }
+            }  else if (option.isDecimalToHex(converterFrom, converterTo)) {
+                tryConvert(input) { Convert.decimalToHex(input.toInt()) }
+            }
+
+
+
+            else if (option.isBinaryToBinary(converterFrom, converterTo)) {
+                sameTypeConverter(converterFrom.selectedItem.toString())
+            }else if (option.isDecimalToDecimal(converterFrom, converterTo)) {
                 sameTypeConverter(converterFrom.selectedItem.toString())
             }
 
@@ -54,21 +66,7 @@ class MainActivity() : AppCompatActivity() {
         converterTo.setSelection(1)
     }
 
-    private fun isBinaryToDecimal(from: Spinner, to: Spinner): Boolean {
-        return option.isBinary(from) && option.isDecimal(to)
-    }
 
-    private fun isBinaryToOctal(from: Spinner, to: Spinner): Boolean {
-        return option.isBinary(from) && option.isOctal(to)
-    }
-
-    private fun isBinaryToHex(from: Spinner, to: Spinner): Boolean {
-        return option.isBinary(from) && option.isHexDecimal(to)
-    }
-
-    private fun isBinaryToBinary(from: Spinner, to: Spinner): Boolean {
-        return option.isBinary(from) && option.isBinary(to)
-    }
 
     private fun <I, O> tryConvert(input: I, convert: (I) -> O) {
         try {
