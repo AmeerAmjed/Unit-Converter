@@ -22,7 +22,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/btn_clean_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="@null"
+        android:contentDescription="@string/button_to_clear_input"
+        android:padding="8dp"
+        android:src="@drawable/clear"
 
+        app:layout_constraintBottom_toBottomOf="@+id/input_converter"
+        app:layout_constraintEnd_toEndOf="@+id/input_converter"
+        app:layout_constraintTop_toTopOf="@+id/input_converter" />
+<!--    android:visibility="invisible"-->
     <Spinner
         android:id="@+id/select_converter_from"
         android:layout_width="@dimen/spacing0"

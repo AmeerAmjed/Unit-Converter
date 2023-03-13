@@ -20,4 +20,5 @@
     <color name="text_variant_10">#1A000000</color>
 
     <color name="background_action">@color/white</color>
+    <color name="clear_icon">#60000000</color>
 </resources>
